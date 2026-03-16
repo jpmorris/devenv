@@ -53,9 +53,9 @@
 | Kill session   | `tmux kill-session -t myproject` | Destroy a session          |
 <!-- prettier-ignore-end -->
 
-## Tmux Shortcuts (Prefix = Ctrl+b)
+## Tmux Shortcuts (Prefix = Ctrl+Space)
 
-> `Ctrl+b` = press and release, then press the next key
+> `Ctrl+Space` = press and release, then press the next key
 
 #### Essential
 
@@ -63,14 +63,14 @@
 | Action           | Keybinding                | Description                                  |
 | ---------------- | ------------------------- | -------------------------------------------- |
 | Navigate panes   | `Ctrl+h/j/k/l`            | Vim-style (no prefix needed)                 |
-| Detach           | `Ctrl+b d`                | **Back to shell (session keeps running)**    |
-| New window       | `Ctrl+b c`                | **Create clean window (hide AI)**            |
+| Next window      | `Ctrl+n`                  | No prefix needed                             |
+| Previous window  | `Ctrl+p`                  | No prefix needed                             |
+| New window       | `Ctrl+Space c`            | **Create clean window**                      |
+| Detach           | `Ctrl+Space d`            | **Back to shell (session keeps running)**    |
 | Split vertical   | `Ctrl+\`                  | Split pane vertically (no prefix)            |
-| Split horizontal | `Ctrl+b -`                | Split pane horizontally                      |
-| Next window      | `Ctrl+b n`                | Next window                                  |
-| Previous window  | `Ctrl+b p`                | Previous window                              |
-| Jump to window   | `Ctrl+b 1-9` or `Alt+1-5` | Jump directly by number                      |
-| Resize pane      | `Ctrl+b H/J/K/L`          | Capital letters, hold to repeat              |
+| Split horizontal | `Ctrl+]`                  | Split pane horizontally (no prefix)          |
+| Jump to window   | `Ctrl+Space 1-9`          | Jump directly by number                      |
+| Resize pane      | `Ctrl+Space H/J/K/L`     | Capital letters, hold to repeat              |
 <!-- prettier-ignore-end -->
 
 #### Other
@@ -78,11 +78,10 @@
 <!-- prettier-ignore-start -->
 | Action           | Keybinding                | Description                                  |
 | ---------------- | ------------------------- | -------------------------------------------- |
-| Jump to window   | `Ctrl+b 1-9` or `Alt+1-5` | Jump directly by number                      |
-| Rename window    | `Ctrl+b ,`                | Rename current window                        |
-| Close pane       | `Ctrl+b x`                | Close current pane                           |
-| Copy mode        | `Ctrl+b [`                | Scroll/search output (vim keys, `q` to exit) |
-| Reload config    | `Ctrl+b r`                | Apply ~/.tmux.conf changes                   |
+| Rename window    | `Ctrl+Space ,`            | Rename current window                        |
+| Close pane       | `Ctrl+Space x`            | Close current pane                           |
+| Copy mode        | `Ctrl+Space [`            | Scroll/search output (vim keys, `q` to exit) |
+| Reload config    | `Ctrl+Space r`            | Apply ~/.tmux.conf changes                   |
 <!-- prettier-ignore-end -->
 
 ### Vim Motions (In Neovim and VSCode with Vim plugin)

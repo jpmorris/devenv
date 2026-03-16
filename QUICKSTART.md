@@ -31,7 +31,7 @@ source ~/.bashrc
 
 # Start tmux and install plugins
 tmux
-# Press: Ctrl+a I (capital I)
+# Press: Ctrl+Space I (capital I)
 
 # Test neovim
 nvim
@@ -123,11 +123,11 @@ In Neovim:
 
 ### 5. Use Tmux Windows (Critical for Work)
 
-- `Ctrl+a c` - Create new window (empty terminal)
-- `Ctrl+a n` - Next window
-- `Ctrl+a p` - Previous window
-- `Ctrl+a 1` - Jump to window 1
-- `Ctrl+a 2` - Jump to window 2
+- `Ctrl+Space c` - Create new window (empty terminal)
+- `Ctrl+n` - Next window (no prefix)
+- `Ctrl+p` - Previous window (no prefix)
+- `Ctrl+Space 1` - Jump to window 1
+- `Ctrl+Space 2` - Jump to window 2
 
 **Practice the "hide AI" workflow:**
 
@@ -136,16 +136,16 @@ In Neovim:
 nvim project.py
 
 # Create new window for AI
-Ctrl+a c
+Ctrl+Space c
 
 # Window 2: Use Copilot CLI
 gh copilot suggest "python function to sort a list"
 
 # Quick hide - jump back to window 1
-Ctrl+a 1
+Ctrl+Space 1
 
 # Back to AI when safe
-Ctrl+a 2
+Ctrl+Space 2
 ```
 
 ### 6. Try AI Assistant (After `gh auth login`)
@@ -172,9 +172,9 @@ explain "find . -name '*.py' -mtime -1"
 **Days 3-4: Tmux**
 
 - Start every session with `tmux`
-- Practice `Ctrl+a c` (new window)
-- Practice `Ctrl+a 1-9` (jump to windows)
-- Get comfortable with splits: `Ctrl+a |` and `Ctrl+a -`
+- Practice `Ctrl+Space c` (new window)
+- Practice `Ctrl+n`/`Ctrl+p` (next/prev windows)
+- Get comfortable with splits: `Ctrl+\` and `Ctrl+]`
 
 **Days 5-7: File Navigation**
 
@@ -227,7 +227,7 @@ proj
 vf
 
 # Create window for AI
-Ctrl+a c
+Ctrl+Space c
 ```
 
 **Set up your window layout:**
@@ -235,7 +235,7 @@ Ctrl+a c
 - Window 1: Main editing (Neovim)
 - Window 2: Tests/output (terminal)
 - Window 3: Git operations
-- Window 9: AI tools (easy to hide with `Ctrl+a 1`)
+- Window 9: AI tools (easy to hide with `Ctrl+Space 1`)
 
 **Practice:**
 
@@ -272,10 +272,10 @@ Ctrl+a c
 tm
 
 # Check what you were doing
-Ctrl+a w  # List windows
+Ctrl+Space w  # List windows
 
 # Jump to project window
-Ctrl+a 1
+Ctrl+Space 1
 
 # Continue coding
 <Space>ff  # Find file to work on
@@ -288,20 +288,20 @@ Ctrl+a 1
 nvim src/feature.py
 
 # Need AI help - create window 9
-Ctrl+a c
-Ctrl+a :move-window -t 9
+Ctrl+Space c
+Ctrl+Space :move-window -t 9
 
 # Ask Copilot
 ask "python function to validate email"
 
 # Jump back to code
-Ctrl+a 1
+Ctrl+Space 1
 
 # If someone approaches:
 # Already on window 1, they see your code, not AI
 
 # Get back to AI when safe:
-Ctrl+a 9
+Ctrl+Space 9
 ```
 
 ### Scenario 3: Screen Share (Work)
@@ -339,11 +339,11 @@ Ctrl+l
 # Edit with vim commands
 
 # Ask AI for help
-Ctrl+a c
+Ctrl+Space c
 ask "refactor this to new API"
 
 # Back to editing
-Ctrl+a p
+Ctrl+p
 ```
 
 ## Common Pitfalls & Solutions
@@ -374,12 +374,7 @@ You'll learn `hjkl` in 1 day. Remove these after you're comfortable.
 
 ### "Tmux prefix is awkward"
 
-**Solution:** The config uses `Ctrl+a` (not default `Ctrl+b`) which is easier. If still awkward,
-edit `~/.tmux.conf`:
-
-```bash
-set -g prefix C-Space  # Or any key you prefer
-```
+**Solution:** The config uses `Ctrl+Space` as prefix. Next/previous window are `Ctrl+n`/`Ctrl+p` (no prefix needed).
 
 ### "I lost my tmux session"
 
@@ -404,7 +399,7 @@ tmux attach -t 0  # Attach to session 0
    - Without this, everything else is painful
    - Commit to 1 week of no arrow keys
 
-2. **Tmux Window Switching** (`Ctrl+a 1-9`, `Ctrl+a n/p`)
+2. **Tmux Window Switching** (`Ctrl+n`/`Ctrl+p`, `Ctrl+Space 1-9`)
    - Essential for "hide AI" workflow at work
    - Practice until it's instant
 

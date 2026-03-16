@@ -37,7 +37,7 @@ using VSCode or Neovim/Tmux, on Linux or WSL.
 - Multiple windows and panes
 - Session persistence
 - Easy window/tab management for hiding AI terminals
-- Prefix key: `Ctrl+a` (easier than default `Ctrl+b`)
+- Prefix key: `Ctrl+Space`
 
 ### 3. **FZF** - Fuzzy Finder
 
@@ -80,13 +80,13 @@ using VSCode or Neovim/Tmux, on Linux or WSL.
 
 **Tmux (terminal level):**
 
-- `Ctrl+a |` - Split vertical
-- `Ctrl+a -` - Split horizontal
-- `Ctrl+a h/j/k/l` - Navigate panes (vim-style)
-- `Ctrl+a c` - New window (tab)
-- `Ctrl+a n` - Next window
-- `Ctrl+a p` - Previous window
-- `Ctrl+a 0-9` - Jump to window number
+- `Ctrl+\` - Split vertical (no prefix)
+- `Ctrl+]` - Split horizontal (no prefix)
+- `Ctrl+h/j/k/l` - Navigate panes (no prefix)
+- `Ctrl+Space c` - New window (tab)
+- `Ctrl+n` - Next window (no prefix)
+- `Ctrl+p` - Previous window (no prefix)
+- `Ctrl+Space 1-9` - Jump to window number
 
 **Neovim (editor level):**
 
