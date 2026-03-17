@@ -93,3 +93,72 @@ machine restart.
 - Sessions saved to: `~/.local/share/nvim/sessions/`
 - No manual steps required — save happens on `:q`, restore on next `nvim` launch
 - Suppressed in `~/` and `/tmp` to avoid noisy root-level sessions
+
+## Neovim Plugin Setup Notes
+
+Notes on plugins that need extra setup steps beyond lazy.nvim's standard install.
+
+---
+
+## markdown-preview.nvim
+
+Live markdown preview in your browser while editing in nvim.
+
+### Linux (native)
+
+Just works. lazy.nvim runs the build step (`cd app && npx --yes yarn install`)
+and the plugin uses its pre-built binary automatically.
+
+### WSL2 (work computer)
+
+Two things need fixing: the corporate proxy (Zscaler) corrupts binary downloads,
+and WSL2's network isolation means the browser opener needs `cmd.exe`.
+
+#### 1. Install node dependencies manually
+
+The lazy.nvim build step uses yarn, which may fail. Run this instead:
+
+```bash
+cd ~/.local/share/nvim/lazy/markdown-preview.nvim/app
+npm install
+```
+
+#### 2. Delete any corrupt pre-built binary
+
+Zscaler blocks/corrupts `.tar.gz` downloads mid-transfer, leaving a truncated
+binary that exists on disk but crashes silently. Delete it so the plugin falls
+back to using `node`:
+
+```bash
+rm -rf ~/.local/share/nvim/lazy/markdown-preview.nvim/app/bin/
+```
+
+You can verify corruption with:
+```bash
+file ~/.local/share/nvim/lazy/markdown-preview.nvim/app/bin/markdown-preview-linux
+# Bad:  "... missing section headers at ..."
+# Good: file not found (fallback to node will be used)
+```
+
+#### 3. Add `cmd.exe` to PATH in the plugin config
+
+The node server uses `cmd.exe` to open URLs in the Windows browser. WSL2 doesn't
+include `C:\Windows\System32` in PATH by default.
+
+In `~/.config/nvim/lua/jm/plugins/markdown-preview.lua`:
+
+```lua
+config = function()
+  vim.g.mkdp_markdown_css = vim.fn.expand("~/.config/nvim/markdown-preview.css")
+  -- On WSL2, the node server needs cmd.exe in PATH to open the browser
+  vim.env.PATH = vim.env.PATH .. ":/mnt/c/Windows/System32"
+end,
+```
+
+#### Why this isn't in dotfiles
+
+The `cmd.exe` PATH addition is WSL2-specific and harmless on native Linux
+(the path simply won't exist). It's safe to commit to dotfiles.
+
+The `npm install` and binary deletion steps only need to be run once after
+initial install or after a `lazy update` pulls a new version of the plugin.
