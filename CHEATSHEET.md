@@ -44,7 +44,7 @@ Works in Neovim, VSCode, and Tmux panes.
 | `<Spc>hb`      | Git blame line          |
 | `<Spc>hd`      | Show diff               |
 | `e`            | End of word             |
-| `{ / }`        | Prev/next paragraph     |
+| `{ / }`        | Aerial: prev/next symbol (was: paragraph) |
 | `%`            | Jump matching bracket   |
 | `f<c>`         | Find char forward       |
 | `<Spc>rn`      | Rename symbol           |
@@ -106,6 +106,21 @@ Works in Neovim, VSCode, and Tmux panes.
 | Diff             | `<Space>hd`   | Show diff                                |
 | Blame file       | `:Git blame`  | Full file blame (fugitive); `Enter` to jump to commit |
 | Git file history | `<Space>gh`   | Browse file at any previous commit (telescope-git-file-history) |
+<!-- prettier-ignore-end -->
+
+## Folding & Outline (Neovim, treesitter-based)
+
+<!-- prettier-ignore-start -->
+| Keybinding  | Action                          |
+| ----------- | ------------------------------- |
+| `za`        | Toggle fold under cursor        |
+| `zc`        | Close fold                      |
+| `zo`        | Open fold                       |
+| `zM`        | Close all folds                 |
+| `zR`        | Open all folds                  |
+| `<Spc>o`    | Toggle aerial outline panel     |
+| `{`         | Aerial: jump to previous symbol |
+| `}`         | Aerial: jump to next symbol     |
 <!-- prettier-ignore-end -->
 
 ## Spelling (Neovim)
